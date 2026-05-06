@@ -12,6 +12,7 @@ EXPLAINER_PIPELINE_ARTIFACT_PATH = ARTIFACTS_DIR / "explainer_pipeline.pkl"
 PREPROCESSOR_ARTIFACT_PATH = ARTIFACTS_DIR / "preprocessor.pkl"
 SHAP_VALUES_ARTIFACT_PATH = ARTIFACTS_DIR / "shap_values.npy"
 SHAP_SUMMARY_ARTIFACT_PATH = ARTIFACTS_DIR / "shap_summary.png"
+THRESHOLD_ARTIFACT_PATH = ARTIFACTS_DIR / "threshold.json"
 
 # Backward-compatible alias for the main inference artifact.
 MODEL_ARTIFACT_PATH = CALIBRATED_PIPELINE_ARTIFACT_PATH

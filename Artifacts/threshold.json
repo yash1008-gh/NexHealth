@@ -1,0 +1,9 @@
+{
+  "model_name": "Calibrated LightGBM",
+  "training_timestamp": "2026-05-05T23:54:18.127306+00:00",
+  "validation_precision": 0.6016543317370483,
+  "validation_recall": 0.7133823719189573,
+  "validation_f2": 0.6878359546087995,
+  "selected_threshold_source": "validation_holdout_calibrated_lightgbm",
+  "threshold": 0.42999999999999994
+}

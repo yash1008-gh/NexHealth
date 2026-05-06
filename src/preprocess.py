@@ -187,11 +187,18 @@ def deterministic_range_midpoints(df: pd.DataFrame) -> pd.DataFrame:
         transformed["weight"] = transformed["weight"].map(_range_midpoint)
     return transformed
 
+import pandas as pd
 
-def build_preprocessor() -> ColumnTransformer:
+def convert_to_category(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    for col in df.select_dtypes(include="object").columns:
+        df[col] = df[col].astype("category")
+    return df
+
+def build_preprocessor_ohe() -> ColumnTransformer:
     numeric_pipeline = Pipeline(
         steps=[
-            ("imputer", SimpleImputer(strategy="constant", fill_value=-1.0, keep_empty_features=True)),
+            ("imputer", SimpleImputer(strategy="constant", fill_value=-1.0, add_indicator=True, keep_empty_features=True)),
         ]
     )
     
@@ -199,6 +206,7 @@ def build_preprocessor() -> ColumnTransformer:
         steps=[
             ("imputer", SimpleImputer(strategy="constant", fill_value="Unknown", keep_empty_features=True)),
             ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
+
         ]
     )
 
@@ -211,3 +219,24 @@ def build_preprocessor() -> ColumnTransformer:
     )
     
     return preprocessor.set_output(transform="pandas")
+
+def build_preprocessor_lgbm() -> ColumnTransformer:
+    numeric_pipeline = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="constant", fill_value=-1.0, add_indicator=True)),
+        ]
+    )
+
+    categorical_pipeline = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="constant", fill_value="Unknown")),
+        ]
+    )
+
+    return ColumnTransformer(
+        transformers=[
+            ("numeric", numeric_pipeline, make_column_selector(dtype_include=np.number)),
+            ("categorical", categorical_pipeline, make_column_selector(dtype_exclude=np.number)),
+        ],
+        remainder="drop",
+    ).set_output(transform="pandas")

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import logging
+from datetime import datetime, timezone
 import random
 from pathlib import Path
 from typing import Any
@@ -21,8 +21,9 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import GroupKFold, GroupShuffleSplit
 from sklearn.pipeline import Pipeline
-
+from sklearn.preprocessing import FunctionTransformer
 from .feature_engineering import NexHealthFeatureEngineer
+from .raw_input_adapter import RawInputAdapter
 from .predict import (
     CALIBRATED_PIPELINE_ARTIFACT_PATH,
     EXPLAINER_PIPELINE_ARTIFACT_PATH,
@@ -38,12 +39,16 @@ from .preprocess import (
     TARGET_COLUMN,
     TRACEABILITY_ONLY_COLUMNS,
     apply_eligibility_filters,
-    build_preprocessor,
+    build_preprocessor_ohe,
+    build_preprocessor_lgbm,
     load_raw_data,
     prepare_target,
+    convert_to_category,
 )
+from utils.logger import get_train_logger
+from utils.threshold import save_threshold
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = get_train_logger()
 RANDOM_STATE = 42
 OUTER_TEST_SIZE = 0.2
 VALIDATION_SIZE = 0.2
@@ -199,15 +204,28 @@ def build_estimator(model_name: str, model_params: dict):
         )
     raise ValueError(f"Unsupported model name: {model_name}")
 
-
 def build_pipeline(model_name: str, model_params: dict) -> Pipeline:
-    return Pipeline(
-        steps=[
-            ("feature_engineering", NexHealthFeatureEngineer()),
-            ("preprocessor", build_preprocessor()),
-            ("model", build_estimator(model_name, model_params)),
-        ]
-    )
+
+    if model_name == "lightgbm":
+        return Pipeline(
+            steps=[
+                ("raw_input_adapter", RawInputAdapter()),
+                ("feature_engineering", NexHealthFeatureEngineer()),
+                ("preprocessor", build_preprocessor_lgbm()),
+                ("to_category", FunctionTransformer(convert_to_category)),
+                ("model", build_estimator(model_name, model_params)),
+            ]
+        )
+
+    else:
+        return Pipeline(
+            steps=[
+                ("raw_input_adapter", RawInputAdapter()),
+                ("feature_engineering", NexHealthFeatureEngineer()),
+                ("preprocessor", build_preprocessor_ohe()),
+                ("model", build_estimator(model_name, model_params)),
+            ]
+        )
 
 
 def decode_lightgbm_solution(solution: np.ndarray) -> dict:
@@ -436,11 +454,22 @@ def fit_lightgbm_result(
 
 
 def transform_for_shap(explainer_pipeline: Pipeline, X: pd.DataFrame) -> pd.DataFrame:
-    engineered = explainer_pipeline.named_steps["feature_engineering"].transform(X)
-    transformed = explainer_pipeline.named_steps["preprocessor"].transform(engineered)
+    """
+    Transform X with the exact same steps used during training,
+    except for the final estimator.
+    """
+    transformed = explainer_pipeline[:-1].transform(X)
+
     if isinstance(transformed, pd.DataFrame):
-        return transformed
-    return pd.DataFrame(transformed, index=engineered.index)
+        frame = transformed.copy()
+    else:
+        frame = pd.DataFrame(transformed, index=X.index)
+
+    # Safety net: LightGBM wants categorical columns to stay categorical
+    for col in frame.select_dtypes(include="object").columns:
+        frame[col] = frame[col].astype("category")
+
+    return frame
 
 
 def normalize_shap_values(shap_values: object) -> np.ndarray:
@@ -456,8 +485,10 @@ def normalize_shap_values(shap_values: object) -> np.ndarray:
 def generate_shap_artifacts(explainer_pipeline: Pipeline, X_explain: pd.DataFrame) -> pd.Series:
     ensure_required_dependencies()
     transformed_frame = transform_for_shap(explainer_pipeline, X_explain)
+
     raw_model = explainer_pipeline.named_steps["model"]
     tree_model = getattr(raw_model, "booster_", raw_model)
+
     tree_explainer = shap.TreeExplainer(tree_model)
     shap_values = normalize_shap_values(tree_explainer.shap_values(transformed_frame))
 
@@ -535,7 +566,6 @@ def main(
     data_path: Path | str = DEFAULT_DATA_PATH,
     precision_floor: float = PRECISION_FLOOR,
 ) -> None:
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
     ensure_required_dependencies()
 
     LOGGER.info("Loading raw data from %s", data_path)
@@ -628,6 +658,21 @@ def main(
             f"Warning: no threshold met the precision floor of {precision_floor:.2f}. "
             "Using the best available compromise."
         )
+
+    threshold_metadata = {
+        "model_name": lightgbm_result["label"],
+        "training_timestamp": datetime.now(timezone.utc).isoformat(),
+        "validation_precision": lightgbm_result["validation_metrics"]["precision"],
+        "validation_recall": lightgbm_result["validation_metrics"]["recall"],
+        "validation_f2": lightgbm_result["validation_metrics"]["f2"],
+        "selected_threshold_source": "validation_holdout_calibrated_lightgbm",
+    }
+    save_threshold(selected_threshold, metadata=threshold_metadata)
+    LOGGER.info(
+        "Saved inference threshold %.6f with metadata source=%s",
+        selected_threshold,
+        threshold_metadata["selected_threshold_source"],
+    )
 
     print_metric_block(
         "Final untouched test metrics - Calibrated LightGBM",

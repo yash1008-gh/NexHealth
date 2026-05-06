@@ -103,6 +103,7 @@ class NexHealthFeatureEngineer(BaseEstimator, TransformerMixin):
             frame[description_column] = frame[description_column].fillna("Unknown")
 
         frame = frame.drop(columns=ID_COLUMNS + TRACEABILITY_ONLY_COLUMNS, errors="ignore")
+
         return frame
 
     def _prepare_frame(self, X: pd.DataFrame) -> pd.DataFrame:

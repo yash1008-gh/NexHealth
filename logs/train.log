@@ -1,0 +1,20 @@
+2026-05-06 03:50:37,893 | INFO | nexhealth.train | Loading raw data from C:\Users\yashs\Downloads\NexHealth\Data\diabetic_data.csv
+2026-05-06 03:50:38,656 | INFO | nexhealth.train | Applying deterministic filtering and target preparation
+2026-05-06 03:50:39,020 | INFO | nexhealth.train | Creating grouped train/test split
+2026-05-06 03:50:39,134 | INFO | nexhealth.train | Creating grouped fit/validation split from training data
+2026-05-06 03:50:39,208 | INFO | nexhealth.train | Running GWO hyperparameter tuning for LightGBM on fit data only
+2026-05-06 04:15:41,513 | INFO | nexhealth.train | Training and evaluating baseline models
+2026-05-06 04:18:07,674 | INFO | nexhealth.train | Training calibrated LightGBM and explainer LightGBM pipelines
+2026-05-06 04:18:41,540 | INFO | nexhealth.train | Saved inference threshold 0.430000 with metadata source=validation_holdout_calibrated_lightgbm
+2026-05-06 04:18:41,567 | INFO | nexhealth.train | Generating SHAP artifacts from the explainer pipeline
+2026-05-06 04:18:51,227 | INFO | nexhealth.train | Saving calibrated, explainer, and preprocessor artifacts
+2026-05-06 04:28:35,794 | INFO | nexhealth.train | Loading raw data from C:\Users\yashs\Downloads\NexHealth\Data\diabetic_data.csv
+2026-05-06 04:28:36,461 | INFO | nexhealth.train | Applying deterministic filtering and target preparation
+2026-05-06 04:28:36,822 | INFO | nexhealth.train | Creating grouped train/test split
+2026-05-06 04:28:36,905 | INFO | nexhealth.train | Creating grouped fit/validation split from training data
+2026-05-06 04:28:36,989 | INFO | nexhealth.train | Running GWO hyperparameter tuning for LightGBM on fit data only
+2026-05-06 05:18:45,778 | INFO | nexhealth.train | Training and evaluating baseline models
+2026-05-06 05:23:04,349 | INFO | nexhealth.train | Training calibrated LightGBM and explainer LightGBM pipelines
+2026-05-06 05:24:18,130 | INFO | nexhealth.train | Saved inference threshold 0.430000 with metadata source=validation_holdout_calibrated_lightgbm
+2026-05-06 05:24:18,177 | INFO | nexhealth.train | Generating SHAP artifacts from the explainer pipeline
+2026-05-06 05:24:31,005 | INFO | nexhealth.train | Saving calibrated, explainer, and preprocessor artifacts

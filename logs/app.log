@@ -1,0 +1,114 @@
+2026-05-06 12:56:09,868 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 12:59:22,055 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:06:46,491 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:06:53,134 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:07:02,692 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:07:10,160 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:07:21,986 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:08:07,273 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:09:09,671 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:10:51,962 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:10:58,822 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:11:05,510 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:11:12,431 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:11:25,488 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:11:31,667 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:13:20,309 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:13:52,482 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:13:58,965 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:14:54,746 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:15:01,424 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:15:13,911 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:15:27,311 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:19:05,277 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 13:19:28,856 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 13:19:30,528 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 13:22:36,724 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 13:22:38,364 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 13:23:00,550 | INFO | nexhealth.app | Prediction request received. patient_number=1 encounter_id=1 explain=True
+2026-05-06 13:23:02,104 | INFO | nexhealth.app | Prediction complete. patient_number=1 encounter_id=1 probability=0.182149 prediction=0 threshold=0.430000
+2026-05-06 15:58:16,301 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:58:21,301 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:58:32,309 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:58:37,485 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:58:45,903 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:58:52,418 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:58:58,134 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:59:04,090 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:59:08,695 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 15:59:10,319 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 15:59:27,994 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:59:36,949 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:59:41,853 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:59:52,036 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 15:59:55,232 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 15:59:56,753 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:00:13,884 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:00:15,901 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:00:17,465 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:00:33,437 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:00:43,253 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:00:48,604 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:00:53,594 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:01:22,275 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:01:23,808 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:02:00,310 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:02:07,544 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:02:10,474 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:02:11,947 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:03:07,166 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:03:19,156 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:03:23,570 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:03:29,194 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:03:37,422 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:03:41,289 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:03:42,878 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:04:03,590 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:04:21,428 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:04:23,378 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:04:25,004 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:04:54,475 | INFO | nexhealth.app | Prediction request received. patient_number=1 encounter_id=1 explain=True
+2026-05-06 16:04:55,946 | INFO | nexhealth.app | Prediction complete. patient_number=1 encounter_id=1 probability=0.182149 prediction=0 threshold=0.430000
+2026-05-06 16:07:08,619 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:07:22,385 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:07:28,380 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:07:34,076 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:07:39,574 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:07:46,857 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:08:11,019 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:08:18,494 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:09:05,465 | INFO | nexhealth.app | Prediction request received. patient_number=1 encounter_id=1 explain=True
+2026-05-06 16:09:07,045 | INFO | nexhealth.app | Prediction complete. patient_number=1 encounter_id=1 probability=0.182149 prediction=0 threshold=0.430000
+2026-05-06 16:10:06,715 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:10:15,974 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:10:17,453 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:11:38,705 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:11:49,801 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:11:57,360 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:13:15,146 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:13:20,287 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:13:41,379 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:13:54,928 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:14:00,360 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:14:25,478 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:14:34,515 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:14:59,752 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:15:01,650 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:15:03,228 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:15:53,211 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:16:13,548 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:16:31,807 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:16:39,887 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:16:55,800 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:16:55,953 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:16:57,436 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:17:24,271 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:17:29,227 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:18:06,156 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:18:16,164 | INFO | nexhealth.app | Prediction request received. patient_number=1 encounter_id=1 explain=True
+2026-05-06 16:18:17,830 | INFO | nexhealth.app | Prediction complete. patient_number=1 encounter_id=1 probability=0.182149 prediction=0 threshold=0.430000
+2026-05-06 16:18:55,763 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
+2026-05-06 16:19:17,132 | INFO | nexhealth.app | Prediction request received. patient_number=999 encounter_id=999 explain=True
+2026-05-06 16:19:18,667 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
+2026-05-06 16:19:36,382 | INFO | nexhealth.app | Prediction request received. patient_number=1 encounter_id=1 explain=True
+2026-05-06 16:19:37,782 | INFO | nexhealth.app | Prediction complete. patient_number=1 encounter_id=1 probability=0.182149 prediction=0 threshold=0.430000
