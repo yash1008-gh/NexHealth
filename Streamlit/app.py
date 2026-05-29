@@ -27,9 +27,9 @@ from api.schemas import (
 st.set_page_config(page_title="NexHealth Inference", layout="wide")
 st.title("NexHealth Patient Risk Inference")
 
-# Pull from the environment, fallback to localhost ONLY if running natively
-DEFAULT_API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
-api_base_url = st.sidebar.text_input("FastAPI base URL", value=DEFAULT_API_URL)
+# Securely pull backend URL from environment variables. 
+# Defaults to the internal Docker network. The public NEVER sees this.
+API_URL = os.getenv("API_URL", "http://api:8000")
 explain = st.sidebar.checkbox("Include SHAP explanation", value=True)
 
 # ---------------- HELPERS ----------------
@@ -217,7 +217,7 @@ if submitted:
 
     try:
         res = requests.post(
-            f"{api_base_url}/predict",
+            f"{API_URL}/predict",
             params={"explain": explain},
             json=payload,
         )
@@ -249,17 +249,19 @@ if submitted:
 
 
         if result.get("shap_values"):
-                st.subheader("SHAP Explanation")
+            st.subheader("SHAP Explanation")
 
-                df = pd.DataFrame(result["shap_values"])
+            df = pd.DataFrame(result["shap_values"])
 
-                # Bar chart
-                st.bar_chart(df.set_index("feature")["impact"])
+            # Bar chart
+            st.bar_chart(df.set_index("feature")["impact"])
 
-                # Table (sorted)
-                st.subheader("Feature Contributions")
+            # Table (sorted)
+            st.subheader("Feature Contributions")
 
-                df_sorted = df.sort_values(by="impact", key=abs, ascending=False)
+            df_sorted = df.sort_values(by="impact", key=abs, ascending=False)
+            
+            # Moved this inside the block to prevent a fatal NameError
+            df_sorted["direction"] = df_sorted["impact"].apply(lambda x: "↑ increases risk" if x > 0 else "↓ decreases risk")
 
-                st.dataframe(df_sorted)
-        df_sorted["direction"] = df_sorted["impact"].apply(lambda x: "↑ increases risk" if x > 0 else "↓ decreases risk")
+            st.dataframe(df_sorted)

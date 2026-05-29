@@ -112,3 +112,4 @@
 2026-05-06 16:19:18,667 | INFO | nexhealth.app | Prediction complete. patient_number=999 encounter_id=999 probability=0.820405 prediction=1 threshold=0.430000
 2026-05-06 16:19:36,382 | INFO | nexhealth.app | Prediction request received. patient_number=1 encounter_id=1 explain=True
 2026-05-06 16:19:37,782 | INFO | nexhealth.app | Prediction complete. patient_number=1 encounter_id=1 probability=0.182149 prediction=0 threshold=0.430000
+2026-05-30 04:36:40,004 | INFO | nexhealth.app | Serving artifacts loaded successfully on startup.
