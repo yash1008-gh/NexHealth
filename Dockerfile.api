@@ -1,0 +1,22 @@
+# Use a slim Python image to keep the footprint small
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install dependencies specifically for the API and LightGBM
+COPY requirements-serving.txt .
+# You might need libgomp1 for LightGBM
+RUN apt-get update && apt-get install -y libgomp1 && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir -r requirements-serving.txt
+
+# Copy the necessary directories
+COPY api/ /app/api/
+COPY src/ /app/src/
+COPY utils/ /app/utils/
+COPY Artifacts/ /app/artifacts/
+
+# Expose the API port
+EXPOSE 8000
+
+# Run the Uvicorn server
+CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8000"]

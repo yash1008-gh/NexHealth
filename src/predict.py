@@ -4,6 +4,8 @@ import pickle
 from pathlib import Path
 from typing import Any
 
+import pathlib
+import platform
 from .preprocess import PROJECT_ROOT
 
 ARTIFACTS_DIR = PROJECT_ROOT / "artifacts"
@@ -25,6 +27,8 @@ def save_pickle_artifact(obj: Any, path: Path) -> None:
 
 
 def load_pickle_artifact(path: Path) -> Any:
+    if platform.system() == 'Linux':
+        pathlib.WindowsPath = pathlib.PosixPath
     with path.open("rb") as artifact_file:
         return pickle.load(artifact_file)
 

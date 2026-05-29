@@ -1,0 +1,12 @@
+Data/*.csv
+src/notebooks/*.csv
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+.env
+*.pem
+*.key
+note.ipynb
+src/notebooks

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    networks:
+      - nexhealth_net
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    ports:
+      - "8501:8501"
+    environment:
+      # CRITICAL: In a Docker network, 'api' resolves to the backend container's IP.
+      # If your Streamlit app still hardcodes 127.0.0.1, it will fail.
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    networks:
+      - nexhealth_net
+
+networks:
+  nexhealth_net:
+    driver: bridge

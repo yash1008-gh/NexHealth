@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import pandas as pd
 import requests
 import streamlit as st
@@ -26,7 +27,9 @@ from api.schemas import (
 st.set_page_config(page_title="NexHealth Inference", layout="wide")
 st.title("NexHealth Patient Risk Inference")
 
-api_base_url = st.sidebar.text_input("FastAPI base URL", value="http://127.0.0.1:8000")
+# Pull from the environment, fallback to localhost ONLY if running natively
+DEFAULT_API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
+api_base_url = st.sidebar.text_input("FastAPI base URL", value=DEFAULT_API_URL)
 explain = st.sidebar.checkbox("Include SHAP explanation", value=True)
 
 # ---------------- HELPERS ----------------

@@ -1,0 +1,8 @@
+fastapi
+streamlit
+requests
+uvicorn
+shap
+pydantic
+lightgbm
+scikit-learn==1.7.1
