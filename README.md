@@ -398,19 +398,6 @@ That is the architecture. Not glamorous, but functional. Which is more than most
 
 ---
 
-## Future Improvements
-
-Possible upgrades include:
-
-* adding authentication for the public demo
-* moving model artifacts to S3
-* adding CI/CD for automated deployment
-* separating feature engineering into a shared library
-* logging requests and model outputs to a monitoring backend
-* adding input presets for more patient profiles
-
----
-
 ## License
 
 No license has been specified yet.
