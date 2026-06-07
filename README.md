@@ -19,7 +19,7 @@ It includes:
 
 The project is deployed on an AWS EC2 `t3.micro` instance:
 
-**[http://54.153.223.224](http://54.153.223.224)**
+**[http://3.106.217.146/](http://3.106.217.146/)**
 
 The instance is often stopped to save resources, so the demo may not always be reachable.
 
